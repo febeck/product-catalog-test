@@ -1,0 +1,52 @@
+{
+  "name": "product",
+  "plural": "products",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "sku": {
+      "type": "string",
+      "required": true
+    },
+    "price": {
+      "type": "number",
+      "required": true
+    },
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "string",
+      "required": true
+    },
+    "size": {
+      "type": "any",
+      "required": true
+    },
+    "brand": {
+      "type": "string",
+      "required": true
+    },
+    "categories": {
+      "type": [
+        "string"
+      ],
+      "required": true
+    },
+    "productImageUrl": {
+      "type": "string",
+      "required": true
+    },
+    "specialPrice": {
+      "type": "number"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}
