@@ -1,13 +1,16 @@
 import { connect } from 'react-redux'
 import ProductItem from './ProductItem.component'
+import { push } from 'react-router-redux'
 
-function mapStateToProps () {
+const mapStateToProps = state => {
   return {}
 }
 
-function mapDispatchToProps () {
-  return {}
-}
+const mapDispatchToProps = dispatch => ({
+  navigateProductDetail (sku) {
+    dispatch(push(`/${sku}`))
+  }
+})
 
 export default connect(
   mapStateToProps,
