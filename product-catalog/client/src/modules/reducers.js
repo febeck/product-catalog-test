@@ -8,7 +8,7 @@ import { LOCATION_CHANGE } from 'react-router-redux'
 /**
  * Example of the Page module which should export a reducer.
  */
-// import page from '../pages/Page/module'
+import product from '../pages/Products/module'
 
 /*
  * routeReducer
@@ -42,6 +42,7 @@ function routeReducer (state = routeInitialState, action) {
 export default function createReducer (asyncReducers) {
   return combineReducers({
     routing: routeReducer,
-    ...asyncReducers
+    ...asyncReducers,
+    product
   })
 }

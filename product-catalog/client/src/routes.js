@@ -1,10 +1,10 @@
 import React from 'react'
 import { Route } from 'react-router'
-import { Root } from './components'
+import { Products } from './pages'
 
 const routes = (
   <div>
-    <Route exact path='/' component={Root} />
+    <Route exact path='/' component={Products} />
   </div>
 )
 

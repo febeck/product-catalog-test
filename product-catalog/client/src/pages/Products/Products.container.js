@@ -1,8 +1,10 @@
 import { connect } from 'react-redux'
-import Root from './Root.component'
+import Products from './Products.component'
 
-function mapStateToProps () {
-  return {}
+function mapStateToProps (state) {
+  return {
+    items: state.product.list
+  }
 }
 
 function mapDispatchToProps () {
@@ -12,4 +14,4 @@ function mapDispatchToProps () {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Root)
+)(Products)
