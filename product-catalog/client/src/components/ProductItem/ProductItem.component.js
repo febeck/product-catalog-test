@@ -24,7 +24,7 @@ export default class ProductItem extends Component {
     const {item} = this.props
     return (
       <div onClick={this.navigateProductDetail}>
-        {`The sku of the product is: ${item.sku}`}}
+        {`The sku of the product is: ${item.sku}`}
       </div>
     );
   }

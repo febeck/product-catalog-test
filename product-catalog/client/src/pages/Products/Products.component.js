@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import {ProductItem} from '../../components'
 
-export default class Root extends Component {
+export default class Products extends Component {
     static propTypes = {
       items: PropTypes.arrayOf(PropTypes.shape({
         sku: PropTypes.string,

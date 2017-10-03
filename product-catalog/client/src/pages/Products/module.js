@@ -8,12 +8,12 @@
  /**
  * Constants should be scoped to their module: use the string Products/ADD_ITEM instead of ADD_ITEM
  */
-const ADD_ITEM = 'Products/ADD_ITEM'
+export const SELECT_ITEM = 'Products/SELECT_ITEM'
 
-export function addItem (item) {
+export function selectItem (sku) {
   return {
-    type: ADD_ITEM,
-    payload: item
+    type: SELECT_ITEM,
+    payload: sku
   }
 }
 
@@ -72,7 +72,8 @@ const initialState = {
       'product_image_url': 'http://cdn.gfg.com.br/spiderman/spidernet.jpg',
       'special_price': 1
     }
-  ]
+  ],
+  selectedItem: null
 }
 
 /**
@@ -80,6 +81,11 @@ const initialState = {
  */
 export default function reducer (state = initialState, action) {
   switch (action.type) {
+    case SELECT_ITEM:
+      return {
+        ...state,
+        selectedItem: action.payload
+      }
     default:
       return state
   }

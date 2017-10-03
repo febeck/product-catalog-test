@@ -1,11 +1,11 @@
 import React from 'react'
 import { Route } from 'react-router'
-import { Products } from './pages'
+import { Products, ProductDetail } from './pages'
 
 const routes = (
   <div>
     <Route exact path='/' component={Products} />
-    <Route exact path='/:id' render={({match}) => <h1>{match.params.id}</h1>} />
+    <Route exact path='/:id' component={ProductDetail} />
   </div>
 )
 
