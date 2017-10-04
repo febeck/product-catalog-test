@@ -16,12 +16,24 @@ export default class ProductDetail extends Component {
     })
   }
 
+  getSizeStock = (size) => {
+    let url = `http://localhost:3050/api/stocks?filter[where][and][0][sku]=${this.props.item.sku}&filter[where][and][1][size]=${size}`
+    fetch(url)
+    .then(response => response.json())
+    .then(response => {
+      response.length
+      ? alert(`There are ${response[0].quantity} units of product ${this.props.item.name} at warehouse ${response[0].warehouse}`)
+      : alert('This product is not listed in our stock...')
+    })
+  }
+
    render () {
     const {item} = this.props
     return (
       <div className='App'>
         <div className='App-header'>
-          <h2>{`Welcome to Product of ${item.name}`}</h2>
+          <h2>{`Detail of product of ${item.name}`}</h2>
+          {item.size.map(size => <h4 key={size} onClick={() => this.getSizeStock(size)}>{size}</h4>)}
         </div>
       </div>
     )
