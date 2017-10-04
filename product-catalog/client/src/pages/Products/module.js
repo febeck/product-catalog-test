@@ -9,11 +9,19 @@
  * Constants should be scoped to their module: use the string Products/ADD_ITEM instead of ADD_ITEM
  */
 export const SELECT_ITEM = 'Products/SELECT_ITEM'
+export const FETCH_PRODUCTS_SUCCESS = 'Products/FETCH_PRODUCTS_SUCCESS'
 
 export function selectItem (sku) {
   return {
     type: SELECT_ITEM,
     payload: sku
+  }
+}
+
+export function fetchProductsSuccess (products) {
+  return {
+    type: FETCH_PRODUCTS_SUCCESS,
+    payload: products
   }
 }
 
@@ -85,6 +93,11 @@ export default function reducer (state = initialState, action) {
       return {
         ...state,
         selectedItem: action.payload
+      }
+    case FETCH_PRODUCTS_SUCCESS:
+      return {
+        ...state,
+        list: action.payload
       }
     default:
       return state

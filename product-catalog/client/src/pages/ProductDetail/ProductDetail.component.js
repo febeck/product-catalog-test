@@ -2,21 +2,21 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
 export default class ProductDetail extends Component {
-    static propTypes = {
-      item: PropTypes.shape({
-        sku: PropTypes.string,
-        price: PropTypes.number,
-        name: PropTypes.string,
-        description: PropTypes.string,
-        size: PropTypes.any,
-        brand: PropTypes.string,
-        categories: PropTypes.any,
-        product_image_url: PropTypes.string,
-        special_price: PropTypes.number,
-      })
-    };
+  static propTypes = {
+    item: PropTypes.shape({
+      sku: PropTypes.string,
+      price: PropTypes.number,
+      name: PropTypes.string,
+      description: PropTypes.string,
+      size: PropTypes.any,
+      brand: PropTypes.string,
+      categories: PropTypes.any,
+      product_image_url: PropTypes.string,
+      special_price: PropTypes.number,
+    })
+  }
 
-  render () {
+   render () {
     const {item} = this.props
     return (
       <div className='App'>
@@ -26,4 +26,4 @@ export default class ProductDetail extends Component {
       </div>
     )
   }
-  }
+}

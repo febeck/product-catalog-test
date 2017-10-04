@@ -16,6 +16,14 @@ export default class Products extends Component {
         special_price: PropTypes.number,
       })),
     };
+
+    componentWillMount() {
+      fetch('http://localhost:3030/api/products')
+      .then(response => response.json())
+      .then(response => {
+        this.props.fetchProductsSuccess(response)
+      })
+    }
   
     render() {
       const {items} = this.props
