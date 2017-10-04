@@ -37,11 +37,11 @@
       ],
       "required": true
     },
-    "productImageUrl": {
+    "product_image_url": {
       "type": "string",
       "required": true
     },
-    "specialPrice": {
+    "special_price": {
       "type": "number"
     }
   },

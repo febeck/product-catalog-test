@@ -4,7 +4,7 @@ module.exports = function (Product) {
   // ^(https?://)?(?:[a-z0-9\\-]+\\.)+[a-z]{2,6}(?:/[^/#?]+)+\\.(?:jpe?g|gif|png)$
   // |- protocol -|--------- domain ------------|---- path ----|--- extension ---|
   let imageUrlValidator = '^(https?://)?(?:[a-z0-9\\-]+\\.)+[a-z]{2,6}(?:/[^/#?]+)+\\.(?:jpe?g|gif|png)$'
-  Product.validatesFormatOf('productImageUrl', {
+  Product.validatesFormatOf('product_image_url', {
     with: imageUrlValidator,
     message: 'Must be a valid URL with valid image file extension (jpg, jpeg, png, gif)'
   })
