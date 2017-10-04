@@ -7,8 +7,8 @@
   },
   "scripts": {
     "lint": "eslint .",
-    "start": "node .",
-    "server:watch": "nodemon -L server/server.js --ignore tests/ --ignore client/",
+    "warehouse:watch": "nodemon -L warehouse/server.js --ignore stock/ --ignore client/",
+    "stock:watch": "nodemon -L stock/server.js --ignore warehouse/ --ignore client/",
     "posttest": "npm run lint && nsp check"
   },
   "dependencies": {
