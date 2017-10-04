@@ -2,14 +2,16 @@
   "name": "product",
   "plural": "products",
   "base": "PersistedModel",
-  "idInjection": true,
+  "idInjection": false,
   "options": {
     "validateUpsert": true
   },
   "properties": {
     "sku": {
+      "id": true,
       "type": "string",
-      "required": true
+      "required": true,
+      "unique": true
     },
     "price": {
       "type": "number",
