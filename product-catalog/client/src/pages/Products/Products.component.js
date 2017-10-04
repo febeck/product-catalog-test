@@ -23,6 +23,9 @@ export default class Products extends Component {
       .then(response => {
         this.props.fetchProductsSuccess(response)
       })
+      .catch(e => {
+        this.props.fetchProductsFailure(e)
+      })
     }
   
     render() {
@@ -32,6 +35,9 @@ export default class Products extends Component {
             <div className="App-header">
               <h2>Welcome to Product</h2>
             </div>
+            {items.length === 0 &&
+              <span>There are no products on the catalog...</span>
+            }
             {items.map(item => <ProductItem key={item.sku} item={item} />)}
           </div>
       );

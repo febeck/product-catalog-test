@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import Products from './Products.component'
-import {fetchProductsSuccess} from './module'
+import {fetchProductsSuccess, fetchProductsFailure} from './module'
 
 function mapStateToProps (state) {
   return {
@@ -12,6 +12,9 @@ function mapDispatchToProps (dispatch) {
   return {
     fetchProductsSuccess: (products) => {
       dispatch(fetchProductsSuccess(products))
+    },
+    fetchProductsFailure: (error) => {
+      dispatch(fetchProductsFailure(error))
     }
   }
 }

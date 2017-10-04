@@ -10,6 +10,7 @@
  */
 export const SELECT_ITEM = 'Products/SELECT_ITEM'
 export const FETCH_PRODUCTS_SUCCESS = 'Products/FETCH_PRODUCTS_SUCCESS'
+export const FETCH_PRODUCTS_FAILURE = 'Products/FETCH_PRODUCTS_FAILURE'
 
 export function selectItem (sku) {
   return {
@@ -25,63 +26,17 @@ export function fetchProductsSuccess (products) {
   }
 }
 
+export function fetchProductsFailure (error) {
+  return {
+    type: FETCH_PRODUCTS_FAILURE,
+    payload: error
+  }
+}
+
 const initialState = {
-  list: [
-    {
-      'sku': 'BATMAN-123',
-      'price': 122.99,
-      'name': 'Batmobile',
-      'description': 'Superhero Car',
-      'size': ['V8', 'V12', 'V16'],
-      'brand': 'Bruce Wayne',
-      'categories': ['Super Heroes', 'Flying Cars', 'Cars'],
-      'product_image_url': 'cdn.gfg.com.br/batmobile.jpg',
-      'special_price': 11.22
-    },
-    {
-      'sku': 'SPD-99',
-      'price': 1992.99,
-      'name': 'Spiderman Suit',
-      'description': 'Fancy suit for Spidermen',
-      'size': ['34', '35'],
-      'brand': 'Peter Parker',
-      'categories': ['Super Heroes', 'Spiderman', 'Clothes'],
-      'product_image_url': 'http://cdn.gfg.com.br/spider-suite.jpg'
-    },
-    {
-      'sku': 'KRYPT-123',
-      'price': 122.99,
-      'name': 'Kryptonite',
-      'description': 'Anti Superman material',
-      'size': ['22', '23', '24'],
-      'brand': 'Lex Luthor',
-      'categories': ['Super Heroes', 'Superman', 'Accessories'],
-      'product_image_url': 'http://cdn.gfg.com.br/kryptonite.jpg',
-      'special_price': 0.99
-    },
-    {
-      'sku': 'BATMAN-001',
-      'price': 12323.99,
-      'name': 'Batman Suit',
-      'description': 'Comfortable Suit for hunt evil criminals',
-      'size': ['38', '39', '40', '41'],
-      'brand': 'Bruce Wayne',
-      'categories': ['Super Heroes', 'Clothes', 'Batman'],
-      'product_image_url': 'batman-suite'
-    },
-    {
-      'sku': 'SPD-334',
-      'price': 1.99,
-      'name': 'Spidernet refill set',
-      'description': 'To refill your net capabilities',
-      'size': 'single',
-      'brand': 'Peter Parker',
-      'categories': ['Super Heroes', 'Spiderman', 'Accessories'],
-      'product_image_url': 'http://cdn.gfg.com.br/spiderman/spidernet.jpg',
-      'special_price': 1
-    }
-  ],
-  selectedItem: null
+  list: [],
+  selectedItem: null,
+  error: null
 }
 
 /**
@@ -98,6 +53,11 @@ export default function reducer (state = initialState, action) {
       return {
         ...state,
         list: action.payload
+      }
+    case FETCH_PRODUCTS_FAILURE:
+      return {
+        ...state,
+        error: action.payload
       }
     default:
       return state
