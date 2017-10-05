@@ -7,6 +7,9 @@
   },
   "scripts": {
     "lint": "eslint .",
+    "start:client": "cd client && yarn && yarn start",
+    "start:warehouse": "node warehouse/server.js.",
+    "start:stock": "node stock/server.js.",
     "warehouse:watch": "nodemon -L warehouse/server.js --ignore stock/ --ignore client/",
     "stock:watch": "nodemon -L stock/server.js --ignore warehouse/ --ignore client/",
     "posttest": "npm run lint && nsp check"

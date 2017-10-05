@@ -25,6 +25,9 @@ export default class ProductDetail extends Component {
       ? alert(`There are ${response[0].quantity} units of product ${this.props.item.name} at warehouse ${response[0].warehouse}`)
       : alert('This product is not listed in our stock...')
     })
+    .catch(e => {
+      alert("There's a problem with our server...")
+    })
   }
 
    render () {
